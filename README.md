@@ -1,13 +1,13 @@
-# PANDA - Personal Automated Non-Deterministic Assistant
+## PANDA - Personal Automated Non-Deterministic Assistant
 
-### Dependencies:
+#### Dependencies:
 * [Python](https://www.python.org)
 * [SpeechRecognition](https://pypi.python.org/pypi/SpeechRecognition)
 * [gTTS](https://pypi.python.org/pypi/gTTS)
 * [VLC](https://wiki.videolan.org/Python_bindings)
 
-### Directory structure:
-``` c
+#### Directory structure:
+``` python
 ├- panda                   # root directory
 │   ├- deps                    # dependencies
 │   │   ├- vlc.py                  # third party module to play media

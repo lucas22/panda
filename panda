@@ -20,12 +20,11 @@ def start_assistant() :
         r.adjust_for_ambient_noise(source)
 
     stop_listening = r.listen_in_background(source, ears.listen)
-    print(cfg)
-    print("\nHello, I'm listening :)")
+
+    speech.greeting()
 
     while True:
         time.sleep(10)
 
-settings.load_config()
-cfg = settings.cfg
+settings.config()
 start_assistant()

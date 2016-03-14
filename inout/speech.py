@@ -2,7 +2,15 @@ from gtts import gTTS
 from tempfile import *
 from datetime import datetime
 import deps.vlc as vlc
+import settings as s
+import random
 import os
+
+def ty_resp():
+    read_text( random.choice(s.ty_resp)+" thanks" )
+
+def greeting():
+    read_text( random.choice(s.greetings['long']) )
 
 def current_time():
     t = datetime.now().strftime("%I:%M %p")

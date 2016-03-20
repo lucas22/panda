@@ -1,4 +1,7 @@
 #!/usr/bin/env python
+
+# >>> automatos <<<
+
 import speech_recognition as sr
 import inout.speech as speech
 import inout.ears as ears
@@ -9,7 +12,6 @@ import sys
 
 def start_assistant() :
     r = sr.Recognizer()
-    r.energy_threshold = 800
     r.dynamic_energy_threshold = True
 
     ret = os.system("jack_control start")
@@ -19,12 +21,13 @@ def start_assistant() :
     with sr.Microphone() as source:
         r.adjust_for_ambient_noise(source)
 
+    #speech.greeting()
+
     stop_listening = r.listen_in_background(source, ears.listen)
 
-    speech.greeting()
-
     while True:
-        time.sleep(10)
+        msg = sys.stdin.readline()
+        speech.read_text(msg)
 
 settings.config()
 start_assistant()

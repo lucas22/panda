@@ -19,6 +19,8 @@ def interpret (words):
                 a_speak(i, words)
             if action is "ty_resp":
                 speech.ty_resp()
+            if action is "telljoke":
+                speech.telljoke()
 
 def a_browse (i, words):
     website = ''.join(words[i:]) + ".com"
@@ -30,6 +32,7 @@ def a_search (i, words):
     os.system("sensible-browser " +  query)
 
 def a_define (i, words):
+    if "your"
     if "time" in words:
         speech.read_text( "Now it is " + speech.current_time() )
     else:

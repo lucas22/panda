@@ -7,10 +7,13 @@ import random
 import os
 
 def ty_resp():
-    read_text( random.choice(s.ty_resp)+" thanks" )
+    read_text( random.choice(s.ty_resp) )
 
 def greeting():
     read_text( random.choice(s.greetings['long']) )
+
+def telljoke():
+    read_text( random.choice(s.jokes) )
 
 def current_time():
     t = datetime.now().strftime("%I:%M %p")

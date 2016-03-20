@@ -28,10 +28,12 @@ def load_config() :
     cfg['web'] = get_setts_by_section("Web")
 
 def load_vars() :
-    global keywords, greetings, ty_resp
+    global keywords, greetings, ty_resp, jokes
 
-    keywords = { 'browse':['browse','open','visit'], 'search':['search','google'], 'define':['define','what'], 'speak':['say','repeat','shout','speak'], 'ty_resp':['thanks','thank'] }
+    keywords = { 'browse':['browse','open','visit'], 'search':['search','google'], 'define':['define','what'], 'speak':['say','repeat','shout','speak'], 'ty_resp':['thanks','thank'], 'telljoke':['joke','jokes'] }
 
     greetings = {'long':["Hello, how are you today?", "Hi there, "+cfg['gen']['user_name']], 'short':["Hello", "Hi there", "Greetings"]}
 
     ty_resp = ["you are welcome", "it's nothing", "it's my pleasure"]
+
+    jokes = ["What is the difference between a large pizza and a professional online poker player? The large pizza can feed a family of four", "I keep hitting \"escape\", but I'm still here.", "Your life"]

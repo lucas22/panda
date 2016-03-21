@@ -8,16 +8,9 @@
 
 #### Directory structure:
 ``` python
-├- panda                   # root directory
-│   ├- deps                    # dependencies
-│   │   ├- vlc.py                  # third party module to play media
-│   ├- text                    # text files
-│   │   ├- domains.txt             # set of familiar domains
-│   ├- io                      # input/output files
-│   │   ├- ears.py                 # audio input
-│   │   ├- speech.py               # audio output
-│   ├- process                 # processing
-│   │   ├- raw.py                  # initial input processing
-│   ├- panda                   # executable
-│   ├- panda.config            # configuration file
+panda
+├── deps        # dependencies
+├── inout       # input and output control
+├── process     # input processing
+└── text        # lists, sets, general text files
 ```

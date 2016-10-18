@@ -6,25 +6,40 @@ import settings as s
 import random
 import os
 
+
 def ty_resp():
-    read_text( random.choice(s.ty_resp) )
+    say(random.choice(s.ty_resp))
+
 
 def greeting():
-    read_text( random.choice(s.greetings['long']) )
+    say(random.choice(s.greetings['long']))
 
-def telljoke():
-    read_text( random.choice(s.jokes) )
+
+def tell_joke():
+    say(random.choice(s.jokes))
+
 
 def current_time():
     t = datetime.now().strftime("%I:%M %p")
     return t
 
-def read_text(text_to_read):
+
+def say(text_to_read):
+
+    # s.no_ears()
+
+    # get audio
     tts = gTTS(text=text_to_read, lang='en')
     f = NamedTemporaryFile(delete=False, prefix="tts", suffix=".mp3")
     tts.write_to_fp(f)
     f.close()
 
+    # play audio
     v = vlc.MediaPlayer(f.name)
     v.play()
+
+    # restart listening
+    # s.listen_to_me()
+
+    # clean up
     os.system("rm " + f.name)

@@ -4,6 +4,7 @@ from datetime import datetime
 import deps.vlc as vlc
 import settings as s
 import random
+import time
 import os
 
 
@@ -23,6 +24,9 @@ def current_time():
     t = datetime.now().strftime("%I:%M %p")
     return t
 
+def close():
+    say('See you later')
+    exit(0)
 
 def say(text_to_read):
 
@@ -38,8 +42,12 @@ def say(text_to_read):
     v = vlc.MediaPlayer(f.name)
     v.play()
 
-    # restart listening
-    # s.listen_to_me()
-
     # clean up
-    os.system("rm " + f.name)
+    while True:
+        time.sleep(1)
+        if not ( v.get_state() is "State.Playing" or v.get_state() is "State.Opening" ):
+            os.system("rm " + f.name)
+            break;
+
+    # restart listening
+    #s.listen_to_me()

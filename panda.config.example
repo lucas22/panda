@@ -1,0 +1,5 @@
+[General]
+master_name = John
+
+[Web]
+search_engine_query = https://www.google.com.br/search?q=

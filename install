@@ -1,0 +1,30 @@
+#!/bin/bash
+
+if [ "$EUID" -ne 0 ]
+  then echo "Please run as root"
+  exit
+fi
+
+# install dependencies (ubuntu)
+
+apt install jackd2
+apt install libasound2-dev
+
+wget http://portaudio.com/archives/pa_stable_v190600_20161030.tgz
+tar -zxvf pa_stable_v190600_20161030.tgz
+rm pa_stable_v190600_20161030.tgz
+cd portaudio
+./configure && make
+make install
+pip install pyaudio
+cd ..
+rm -rf portaudio
+
+pip install SpeechRecognition
+pip install gTTS
+
+# copy example config file
+
+if [ ! -f 'panda.config' ] && [ -f 'panda.config.example' ]; then
+    cp 'panda.config.example' 'panda.config'
+fi

@@ -3,10 +3,9 @@ import inout.speech as speech
 import settings
 import os
 
-
 # map keywords to group of actions
 def sys_update():
-    output = commands.getstatusoutput("apt-get update && apt-get upgrade")
+    output = commands.getstatusoutput("apt update && apt upgrade")
     error = output[0]
     if not error:
         speech.say("System up-to-date")
@@ -14,7 +13,7 @@ def sys_update():
         speech.say("Error updating")
     print (output[1])
 
-
+# interpret action words
 def interpret(words):
     for w in words:
         i = words.index(w) + 1
@@ -36,6 +35,8 @@ def interpret(words):
                 speech.tell_joke()
             if action is "update":
                 sys_update()
+            if action is "close":
+                speech.close()
 
 
 def a_browse(i, words):

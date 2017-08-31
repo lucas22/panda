@@ -5,7 +5,6 @@ import ConfigParser
 import sys
 import os
 
-
 def config():
     def load_config():
         global cfg, master_name
@@ -33,10 +32,17 @@ def config():
     def load_vars():
         global keywords, greetings, ty_resp, jokes
 
-        keywords = {'browse': ['browse', 'open', 'visit'], 'search': ['search', 'google'], 'define': ['define', 'what'],
-                    'speak': ['say', 'repeat', 'shout', 'speak'], 'ty_resp': ['thanks', 'thank'],
-                    'tell_joke': ['joke', 'jokes'], 'greeting': ['hi', 'hello', 'greetings'],
-                    'update': ['update', 'upgrade']}
+        keywords = {
+                    'browse': ['browse', 'open', 'visit'],
+                    'define': ['define', 'what'],
+                    'close': ['goodbye', 'bye', 'dismissed', 'go away'],
+                    'greeting': ['hi', 'hello', 'greetings'],
+                    'search': ['search', 'google'],
+                    'speak': ['say', 'repeat', 'shout', 'speak'],
+                    'tell_joke': ['joke', 'jokes'],
+                    'ty_resp': ['thanks', 'thank'],
+                    'update': ['update', 'upgrade']
+                    }
 
         greetings = {'long': ["Hello, how are you today?", "Hi there, " + master_name],
                      'short': ["Hello", "Hi there", "Greetings"]}
@@ -69,7 +75,7 @@ def listen_to_me():
     global stop_listening
 
     r = sr.Recognizer()
-    r.dynamic_energy_threshold = True
+    r.dynamic_energy_threshold = False # True for noisy envs
 
     with sr.Microphone() as source:
         r.adjust_for_ambient_noise(source)
